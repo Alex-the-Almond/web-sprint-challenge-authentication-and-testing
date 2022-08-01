@@ -24,7 +24,7 @@ router.post('/login', auth.validateCredentials, async (req, res, next) => {
     if(user.length > 0 && bcrypt.compareSync(password, user[0].password)) {
       const confirmedUser = user[0];
       const token = jotItUp(confirmedUser);
-      res.status(200).json({message: `welcome ${confirmedUser.username}`, token})
+      res.status(200).json({message: `welcome, ${confirmedUser.username}`, token})
     } else res.status(401).json({message: "invalid credentials"})
   }
   catch(err) {

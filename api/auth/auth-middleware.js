@@ -17,7 +17,7 @@ const checkUserViability = async (req, res, next) => {
 
 const validateCredentials = async (req, res, next) => {
     if (!req.body.username?.length > 0 || !req.body.password?.length > 0 ) {
-        res.status(422).json({ message: "username and password is required"});
+        res.status(422).json({ message: "username and password required"});
     } else {
         next();
     }
