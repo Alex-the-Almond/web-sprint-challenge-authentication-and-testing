@@ -3,7 +3,7 @@ require('dotenv');
 const auth = require('./auth-middleware');
 const db = require('../../data/dbConfig');
 const bcrypt = require('bcryptjs');
-const iterations = process.end.HASH_ITERATIONS || 8;
+const iterations = process.env.HASH_ITERATIONS || 8;
 const jotItUp = require('./token');
 
 router.post('/register', auth.validateCredentials, auth.checkUserViability, async (req, res, next) => {
